@@ -1,3 +1,32 @@
 <html>
 
+    
+    <head>
+        <title>Prep - Animation</title>
+        
+        <link rel="stylesheet" type="text/css" href="default.css" />
+    </head>
+    <body>
+        <h1>Dr. B, I know what you've done...</h1>
+        
+        <h3>First things first, the whole reason you had an animation was because you were updating data. You (probably) did this by rebinding new values to existing elements. If you were using rectangles, this might've looked like this:
+        <span class="code">svg.selectAll("rect")
+                <br>.data(dataset);</span>
+        <br>
+        <br> Now as for your actual animations, it was pretty simple really. All you needed to get an animation after you successfully changed the data was one line of code: <span class="code"><br>.transition()</span>
+        <br>This one line by itself gives you a decent animation from one data set to another. Of course, you may have added more code than that to control for timing. For that, you used this line of code: <span class="code">duration()</span>. </h3>
+        
+        <h3>The last fancy part of your animations was the hover effects you had on the graph. Murray says there are two steps to make a visualization interactive: <br><q>1. Binding event listeners</q><br><q>2. Defining the behavior</q>
+        <br>
+        You specifically used a hover effect that highlighted a bar on the chart. This means your code probably looked like this: <span class="code">.on("mouseover", function(){...});</span>
+            <br>
+            if I'm remembering correctly, you set the color of the bar to orange. This means that inside your function, you set the <span class="code">fill</span> attribute of the rectangle to orange. Your code would've looked like this:
+            <span class="code">.on("mouseover", function (){
+            <br>d3.select(this)<br>.attr("fill", "orange");<br>
+            }</span>
+            
+            <br>
+            The coolest thing you used above was the word <span class="code">this</span>. This was a simple way of selecting the rect that just got hovered over to change color.<Br> Finally, you probably had an event listener for when the rectangle was no longer being hovered over so that it would change back to its normal color. This could've been achieved with <span class="code">mouseout</span> and then setting the fill attribute to whatever it was.
+        </h3>
+    </body>
 </html>
